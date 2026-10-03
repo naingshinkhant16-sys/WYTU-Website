@@ -1,0 +1,190 @@
+/* ============================================================
+   WEST YANGON TECHNOLOGICAL UNIVERSITY (WYTU)
+   RESPONSIVE MEDIA QUERIES (css/responsive.css)
+   ============================================================ */
+
+/* Mobile Drawer Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.6);
+  z-index: 1400;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tablet Layouts (<= 1024px) */
+@media (max-width: 1024px) {
+  .dropdown-menu {
+    width: 480px;
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Mobile Layouts (<= 768px) */
+@media (max-width: 768px) {
+  .top-bar-contact {
+    display: none; /* Hide top bar contact details on narrow screens */
+  }
+  
+  .top-bar-content {
+    justify-content: center;
+  }
+  
+  .nav-container {
+    height: 70px;
+  }
+  
+  .brand-logo {
+    height: 42px;
+  }
+  
+  .brand-title {
+    font-size: 1.05rem;
+  }
+  
+  .brand-subtitle {
+    font-size: 0.65rem;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  /* Mobile Hamburger Navigation Menu */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 5rem 1.5rem 2rem 1.5rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 1500;
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  
+  .nav-link {
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  /* Mobile Dropdown Behavior */
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--primary);
+    border-radius: 0;
+    padding: 0.5rem 0 0.5rem 1rem;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin-top: 0.5rem;
+  }
+  
+  .dropdown.mobile-open .dropdown-menu {
+    display: grid;
+  }
+  
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .page-hero {
+    padding: 3rem 0;
+  }
+  
+  .page-hero-title {
+    font-size: 2rem;
+  }
+  
+  .page-hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .btn-search-trigger span {
+    display: none; /* Icon only on mobile button */
+  }
+  
+  .btn-search-trigger {
+    padding: 0.5rem;
+  }
+}
+
+/* Very Small Mobile Screens (<= 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
