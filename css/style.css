@@ -922,8 +922,7 @@ button, input, select, textarea {
     display: none !important;
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .mobile-menu-close {
         display: block !important;
     }

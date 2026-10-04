@@ -3,6 +3,8 @@
    NAVIGATION JAVASCRIPT (js/navigation.js)
    ============================================================ */
 
+const MOBILE_NAV_BREAKPOINT = 992; // must match the media query in css/responsive.css
+
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
   highlightActiveNavLink();
@@ -11,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initMobileNavigation() {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
-  
+
   if (!hamburger || !navMenu) return;
 
   // Create mobile overlay backdrop if missing
@@ -23,41 +25,73 @@ function initMobileNavigation() {
   }
 
   // Create mobile menu close button inside menu if missing
-  if (!navMenu.querySelector('.mobile-menu-close')) {
-    const closeBtn = document.createElement('button');
+  let closeBtn = navMenu.querySelector('.mobile-menu-close');
+  if (!closeBtn) {
+    closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
     closeBtn.className = 'mobile-menu-close';
     closeBtn.innerHTML = '&times;';
     closeBtn.setAttribute('aria-label', 'Close Menu');
     navMenu.prepend(closeBtn);
+  }
 
-    closeBtn.addEventListener('click', toggleMobileMenu);
+  function openMenu() {
+    navMenu.classList.add('active');
+    mobileOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    hamburger.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMenu() {
+    navMenu.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    hamburger.setAttribute('aria-expanded', 'false');
   }
 
   function toggleMobileMenu() {
-    const isOpen = navMenu.classList.contains('active');
-    if (isOpen) {
-      navMenu.classList.remove('active');
-      mobileOverlay.classList.remove('active');
-      document.body.style.overflow = '';
+    if (navMenu.classList.contains('active')) {
+      closeMenu();
     } else {
-      navMenu.classList.add('active');
-      mobileOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      openMenu();
     }
   }
 
+  hamburger.setAttribute('aria-expanded', 'false');
   hamburger.addEventListener('click', toggleMobileMenu);
-  mobileOverlay.addEventListener('click', toggleMobileMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  mobileOverlay.addEventListener('click', closeMenu);
 
-  // Mobile Dropdown Accordion Behavior for "Departments"
+  // Close with the Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Reset everything if the window is resized back to desktop width
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > MOBILE_NAV_BREAKPOINT) {
+      closeMenu();
+      document.querySelectorAll('.dropdown.mobile-open').forEach(d => d.classList.remove('mobile-open'));
+    }
+  });
+
+  // Mobile accordion for "Departments"
   const dropdownToggleLinks = document.querySelectorAll('.dropdown > .nav-link');
   dropdownToggleLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) {
         e.preventDefault();
-        const dropdownParent = link.closest('.dropdown');
-        dropdownParent.classList.toggle('mobile-open');
+        link.closest('.dropdown').classList.toggle('mobile-open');
       }
+    });
+  });
+
+  // Close the drawer when a real link inside it is tapped
+  navMenu.querySelectorAll('a').forEach(a => {
+    const isDropdownToggle = a.matches('.dropdown > .nav-link');
+    if (isDropdownToggle) return;
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) closeMenu();
     });
   });
 }
