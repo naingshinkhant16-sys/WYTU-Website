@@ -353,6 +353,33 @@ const DEPARTMENTS_DATA = [
     activities: "Annual WYTU Mathematics Olympiad and Applied Math Seminars.",
     contact: "Academic Building 1, WYTU Campus | Email: math@wytu.edu.mm (Official contact details will be updated soon)."
   },
+   {
+    slug: "myanmar",
+    name: "Myanmar",
+    myanmarName: "မြန်မာဘာသာ",
+    category: "Supportive Academic Department",
+    icon: "",
+    image: "../images/departments/myanmar.svg",
+    description: "Fosters academic English proficiency, technical writing, professional communication skills, engineering ethics, and social leadership.",
+    overview: "The Department of Myanmar  nurtures effective technical communicators, global thinkers, and ethically grounded engineering leaders capable of collaborating locally.",
+    programs: [
+      { name: "Supportive Academic Curriculum", duration: "Years 1–2", degree: "Language" }
+    ],
+    courses: [
+      "Technical Myanmar & Academic Writing",
+      "Professional Public Speaking & Presentation",
+      "Engineering Ethics & Society",
+      "Project Management & Communication",
+      "Critical Thinking & Problem Solving"
+    ],
+    labs: [
+      { name: "Language Center & Audio Lab", desc: "Multimedia workstations for interactive listening, pronunciation, and speech practice." }
+    ],
+    faculty: "Information will be updated soon.",
+    research: "Research explores English for Specific Purposes (ESP) in technical education and ethics in emerging technology.",
+    activities: "Debate Contests, English Speech Competitions, and Technical Writing Workshops.",
+    contact: "Humanities Center, WYTU Campus | Email: english@wytu.edu.mm (Official contact details will be updated soon)."
+  },
   {
     slug: "english-humanities",
     name: "English",
@@ -363,7 +390,7 @@ const DEPARTMENTS_DATA = [
     description: "Fosters academic English proficiency, technical writing, professional communication skills, engineering ethics, and social leadership.",
     overview: "The Department of English  nurtures effective technical communicators, global thinkers, and ethically grounded engineering leaders capable of collaborating globally.",
     programs: [
-      { name: "Supportive Academic Curriculum", duration: "Years 1–6", degree: "Humanities & Language" }
+      { name: "Supportive Academic Curriculum", duration: "Years 1–4", degree: "Language" }
     ],
     courses: [
       "Technical English & Academic Writing",
