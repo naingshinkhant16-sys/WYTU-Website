@@ -241,7 +241,7 @@ const DEPARTMENTS_DATA = [
   {
     slug: "textile",
     name: "Textile Engineering",
-    myanmarName: "ချည်မျှင်နဲ့အထည်အလိပ်အင်ဂျင်နီယာ",
+    myanmarName: "ချည်မျှင်နဲ့အထည်အင်ဂျင်နီယာ",
     category: "Core Engineering Major",
     icon: "",
     image: "../images/departments/textile.svg",
@@ -355,8 +355,8 @@ const DEPARTMENTS_DATA = [
   },
   {
     slug: "english-humanities",
-    name: "English & Humanities",
-    myanmarName: "အင်္ဂလိပ်စာနှင့် လူမှုသိပ္ပံ",
+    name: "English",
+    myanmarName: "အင်္ဂလိပ်စာ",
     category: "Supportive Academic Department",
     icon: "",
     image: "../images/departments/english-humanities.svg",

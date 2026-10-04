@@ -58,7 +58,7 @@ function initDepartmentsListing() {
   function renderDepartmentCard(dept) {
     return `
       <div class="dept-card">
-        <div class="dept-card-icon">${dept.icon}</div>
+        ${dept.icon ? `<div class="dept-card-icon">${dept.icon}</div>` : ''}
         <h3 class="dept-card-title">${escapeHTML(dept.name)}</h3>
         <div class="dept-card-myanmar">${escapeHTML(dept.myanmarName)}</div>
         <p class="dept-card-desc">${escapeHTML(dept.description)}</p>
