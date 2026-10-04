@@ -6,7 +6,7 @@
 const authService = {
   async login(email, password) {
     const { data, error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) throw new Error('Invalid email or password.');
+    if (error) throw new Error(error.message);
     return data.user;
   },
 
